@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Receipts — one life, three exports</title>
+<meta name="description" content="Eleven years of one person's digital life — 150k songs, 2.4k expenses, 8.7k card swipes — fused into chapters, rhythms, places and threads.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#022016">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="loader" id="loader" role="status" aria-live="polite">
+  <div class="loader-inner">
+    <div class="loader-kicker">RECEIPTS · LIFE EXPORT</div>
+    <div class="loader-num"><span id="loader-pct">0</span><span class="loader-unit">%</span></div>
+    <div class="loader-sub">Printing <span id="loader-n">161,046</span> receipts</div>
+    <div class="loader-bar"><i id="loader-bar"></i></div>
+  </div>
+</div>
+<div class="cursor" id="cursor" aria-hidden="true"><i></i></div>
+<div class="wipe" id="wipe" aria-hidden="true"><span></span></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<nav class="nav" aria-label="Sections">
+  <a class="brand" href="#top">RECEIPTS</a>
+  <div class="links">
+    <a href="#journey" data-wipe="Journey"><span>Journey</span></a>
+    <a href="#chapters" data-wipe="Chapters"><span>Chapters</span></a>
+    <a href="#rhythms" data-wipe="Rhythms"><span>Rhythms</span></a>
+    <a href="#places" data-wipe="Places"><span>Places</span></a>
+    <a href="#explorer" data-wipe="Explorer"><span>Explorer</span></a>
+  </div>
+</nav>
+
+<header id="top" class="hero" data-theme="green">
+  <div class="gallery" id="gallery" aria-hidden="true"></div>
+  <div class="hero-text">
+    <p class="kicker">One dataset · three exports · eleven years</p>
+    <h1 data-split><span class="line">Your life,</span><span class="line"><em>in receipts.</em></span></h1>
+    <p class="lede">A music export. An expense tracker. A card statement. Individually they're noise. Read together, they're a person — and this page reads them together.</p>
+    <div class="ctas"><button type="button" class="cta primary" id="play"><span aria-hidden="true">▶ </span>Play the story</button><a class="cta" href="#journey" data-wipe="Journey">or read it below ↓</a></div>
+  </div>
+  <div class="receipt" id="hero-tiles" role="status"><div class="rc-line"><span>Loading 161,046 receipts…</span></div></div>
+  <div class="legend hero-legend">
+    <span><i class="sw music" aria-hidden="true"></i>Music — Spotify history</span>
+    <span><i class="sw spend" aria-hidden="true"></i>Spend — expense tracker</span>
+    <span><i class="sw card" aria-hidden="true"></i>Card — bank statement</span>
+  </div>
+</header>
+<div class="marquee" id="marquee" aria-hidden="true"><div class="track" id="marquee-track"></div></div>
+
+<main id="main">
+
+<section id="journey" class="section" data-theme="off" aria-labelledby="journey-h">
+  <p class="eyebrow"><span>01</span>Journey</p>
+  <h2 id="journey-h" data-split>The journey</h2>
+  <p class="sub">Monthly activity across all three sources, from the first recorded play in July 2013 to the last in December 2024. Markers indicate the key events on which the chapters are based. Select a marker or a month to open that period in the explorer.</p>
+  <div class="chart-wrap" data-lenis-prevent><div id="journey-chart"></div></div>
+  <p class="note pan-hint">Scroll horizontally to pan the chart.</p>
+</section>
+
+<section id="chapters" class="section" data-theme="peach" aria-labelledby="chapters-h">
+  <p class="eyebrow"><span>02</span>Chapters</p>
+  <h2 id="chapters-h" data-split>Chapters</h2>
+  <p class="sub">The eleven-year record is divided into eight periods, with boundaries placed where the data changes character. All figures are computed from the underlying records at load time. The threads under each chapter join records from different sources on the same day, for example a purchase and the music playing at the time.</p>
+  <div id="chapters-list" class="chapters" data-lenis-prevent-horizontal></div>
+  <p class="note pan-hint">Scroll horizontally or drag the bar to move between chapters.</p>
+</section>
+
+<section id="rhythms" class="section" data-theme="off" aria-labelledby="rhythms-h">
+  <p class="eyebrow"><span>03</span>Rhythms</p>
+  <h2 id="rhythms-h" data-split>Rhythms</h2>
+  <div class="intro"><p class="sub">Aggregate patterns across the full record: the hours and weekdays when listening and spending occur, the shift from cash to digital payment, changes in listening breadth over time, and recurring purchases.</p><div class="sec-pic" id="pic-rhythms"></div></div>
+  <div class="grid-2">
+    <figure class="panel">
+      <figcaption><b>Listening by time of day</b> · plays by hour and weekday (IST)</figcaption>
+      <div id="heat-music" class="scroll-x" data-lenis-prevent></div>
+    </figure>
+    <figure class="panel">
+      <figcaption><b>Spending by time of day</b> · timestamped expenses by hour and weekday</figcaption>
+      <div id="heat-spend" class="scroll-x" data-lenis-prevent></div>
+    </figure>
+    <figure class="panel">
+      <figcaption><b>Cash versus digital payment</b> · share of expenses paid in cash, by quarter</figcaption>
+      <div id="cash-chart"></div>
+      <p class="note" id="cash-note"></p>
+    </figure>
+    <figure class="panel">
+      <figcaption><b>Leading artist</b> · most-played artist per half-year</figcaption>
+      <div id="eras-chart"></div>
+    </figure>
+    <figure class="panel">
+      <figcaption><b>Late-night listening</b> · share of plays between 11 pm and 5 am, by year</figcaption>
+      <div id="night-chart"></div>
+    </figure>
+    <figure class="panel">
+      <figcaption><b>Expense composition</b> · share of spending by category, by year</figcaption>
+      <div id="cat-chart"></div>
+    </figure>
+    <figure class="panel">
+      <figcaption><b>Listening breadth</b> · share of plays from newly discovered artists, and share of tracks skipped, by year. New-artist plays dominate in 2015 and fall to a minimum by 2018; they rise again in 2021 and 2023, and the skip rate rises with them.</figcaption>
+      <div id="open-chart"></div>
+    </figure>
+    <figure class="panel">
+      <figcaption><b>Recurring purchases</b> · items that repeat in the expense record, 2015–2018</figcaption>
+      <div id="rituals" class="tiles" style="margin:0"></div>
+    </figure>
+    <figure class="panel">
+      <figcaption><b>Most-played track by year</b> · select a track to view every play.</figcaption>
+      <div id="anthems" class="results"></div>
+    </figure>
+  </div>
+</section>
+
+<section id="places" class="section" data-theme="green" aria-labelledby="places-h">
+  <p class="eyebrow"><span>04</span>Places</p>
+  <h2 id="places-h" data-split>Places</h2>
+  <div class="intro"><p class="sub">The expense tracker anonymises locations as "Place 0", "Place 1" and so on, but the routes between them can be reconstructed from transport entries. The card statement records a city and state for each transaction; close to half of those transactions are flagged by the bank as fraudulent and are marked as such throughout.</p><div class="sec-pic" id="pic-places"></div></div>
+  <div class="grid-2">
+    <figure class="panel">
+      <figcaption><b>Travel network</b> · routes reconstructed from transport entries, 2015–2018. The most connected location is placed at the centre.</figcaption>
+      <div id="place-net" class="scroll-x" data-lenis-prevent></div>
+      <p class="note" id="place-note"></p>
+    </figure>
+    <figure class="panel">
+      <figcaption><b>Card transactions by state</b> · most frequent states, 2022–2024. <span class="flag">⚠ flagged</span> = marked as fraud by the bank.</figcaption>
+      <div id="state-chart"></div>
+    </figure>
+  </div>
+</section>
+
+<section id="explorer" class="section" data-theme="off" aria-labelledby="explorer-h">
+  <p class="eyebrow"><span>05</span>Explorer</p>
+  <h2 id="explorer-h" data-split>Explorer</h2>
+  <div class="intro"><p class="sub">A searchable index of every record across the three sources. Select a record to view related activity from the same day, together with its history across the dataset.</p><div class="sec-pic slips" id="pic-explorer"></div></div>
+  <div class="filters panel" id="filters">
+    <div class="chips" id="src-chips" role="group" aria-label="Sources">
+      <button type="button" class="chip music on" data-src="music" aria-pressed="true">Music</button>
+      <button type="button" class="chip spend on" data-src="spend" aria-pressed="true">Spend</button>
+      <button type="button" class="chip card on" data-src="card" aria-pressed="true">Card</button>
+    </div>
+    <input type="search" id="q" aria-label="Search receipts" placeholder="Search records, e.g. Beatles, Domino's, Diwali, Netflix, Place 6, Mumbai">
+    <select id="type-sel" aria-label="Receipt type"><option value="">All types</option></select>
+    <label class="range"><span>From <b id="y0-lab"></b></span><input type="range" id="y0" min="2013" max="2024" value="2013"></label>
+    <label class="range"><span>To <b id="y1-lab"></b></span><input type="range" id="y1" min="2013" max="2024" value="2024"></label>
+    <label class="check"><input type="checkbox" id="verified"> Exclude card transactions flagged as fraud</label>
+    <button type="button" class="ghost" id="reset">Reset filters</button>
+  </div>
+  <p class="count" id="count" aria-live="polite"></p>
+  <div id="results" class="results"></div>
+  <button type="button" class="ghost more" id="more">Show more</button>
+</section>
+
+<footer class="foot" data-theme="green">
+  <p class="foot-big" aria-hidden="true"><span class="line">Your life,</span><span class="line"><em>in receipts.</em></span></p>
+  <p><b>Method.</b> Three exports were treated as one person's: a Spotify streaming history (UTC, shifted to IST), a household expense tracker (INR, Mumbai), and a card statement. Card rows without a date or amount were dropped; its coordinate columns were discarded because they span the whole globe (synthetic noise). The fraud flag is shown exactly as the bank recorded it. Everything on this page is computed in the browser from <code>data/data.json</code> — no backend.</p>
+</footer>
+
+</main>
+
+<dialog id="drawer" aria-labelledby="drawer-title">
+  <button type="button" class="close" id="drawer-close" aria-label="Close"><span aria-hidden="true">×</span></button>
+  <div id="drawer-body" tabindex="-1" data-lenis-prevent></div>
+</dialog>
+<div id="tip" class="tip" hidden aria-hidden="true"></div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
