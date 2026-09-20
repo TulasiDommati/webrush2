@@ -1,21 +1,7 @@
 /* Receipts — everything computed in the browser from data/data.json */
 import { setProgress, hideLoader, startMotion, scrollTo, lockScroll, wipeTo } from "./motion.js";
+import { DOW, fmtH, dateOf, dayOf, fmtD, fmtM, yearOf, monthKey, num, inr, pct, esc } from "./util.js";
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
-const fmtH = h => h === 0 ? "12 am" : h === 12 ? "12 pm" : h < 12 ? h + " am" : h - 12 + " pm";
-const EPOCH = Date.UTC(2013, 0, 1);
-const DAY = 864e5;
-const dateOf = i => new Date(EPOCH + i * DAY);
-const dayOf = s => Math.round((Date.UTC(+s.slice(0, 4), +s.slice(5, 7) - 1, +s.slice(8, 10)) - EPOCH) / DAY);
-const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const DOW = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-const fmtD = i => { const d = dateOf(i); return `${d.getUTCDate()} ${MON[d.getUTCMonth()]} ${d.getUTCFullYear()}`; };
-const fmtM = i => { const d = dateOf(i); return `${MON[d.getUTCMonth()]} ${d.getUTCFullYear()}`; };
-const yearOf = i => dateOf(i).getUTCFullYear();
-const monthKey = i => { const d = dateOf(i); return d.getUTCFullYear() * 12 + d.getUTCMonth(); };
-const num = n => Math.round(n).toLocaleString("en-IN");
-const inr = n => "₹" + num(n);
-const pct = x => Math.round(x * 100) + "%";
-const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const COLOR = { music: "var(--music)", spend: "var(--spend)", card: "var(--card)" };
 const SRC_LABEL = { music: "Music", spend: "Spend", card: "Card" };
 

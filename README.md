@@ -37,6 +37,7 @@ noise). Everything else is computed in the browser.
 - `site/index.html` — page structure and copy
 - `site/style.css` — palette: deep green / off-white / peach / acid yellow, plus the three data-source hues (blue, orange, aqua) inside charts
 - `site/motion.js` — Lenis smooth scroll + GSAP: preloader driven by the real download, theme morph between sections, yellow wipe transition on nav clicks, masked headline reveals, scroll-scrubbed paragraph fills, list staggers, chart draw-in, count-ups, magnetic buttons, custom cursor; all skipped under `prefers-reduced-motion`
+- `site/util.js` — pure formatting/date/escape helpers (unit-tested in `test/`)
 - `site/app.js` — unify → journey chart → chapters (live stats + same-day threads + keepsake pictures) → rhythms → places → explorer + drawer → section pictures (24-hour clock, postcard, search slips)
 - Every picture is drawn from the data (no image files) and is clickable: records search the artist, stubs open the receipt, postcard cities and slips run a search; chapter stats are buttons too
 - **Play the story** (hero button) steps through 12 pinned moments with captions; ← → keys work

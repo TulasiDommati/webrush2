@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <title>Receipts — one life, three exports</title>
 <meta name="description" content="Eleven years of one person's digital life — 150k songs, 2.4k expenses, 8.7k card swipes — fused into chapters, rhythms, places and threads.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,6 +11,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <meta name="theme-color" content="#022016">
 <link rel="stylesheet" href="style.css">
+<link rel="modulepreload" href="./app.js">
+<link rel="preload" href="data/data.json" as="fetch" crossorigin>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
